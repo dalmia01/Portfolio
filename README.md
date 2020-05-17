@@ -2,7 +2,7 @@
 
 Portfolio website with resume, contact and about.
 
-visiting demo link - https://web-clock-01.netlify.app/
+visiting demo link - https://proftfolio-01.netlify.app/
 
 ## Getting Started
 
