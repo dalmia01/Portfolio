@@ -8,7 +8,7 @@
     "build": "node_modules/.bin/webpack --config webpack.config.js --mode production",
     "dev": "webpack-dev-server --open",
     "server": "babel-node server/server.js",
-    "start-dev": "concurrently \"npm run server\" \" npm run dev\""
+    "build": "concurrently \"npm run server\" \" npm run dev\""
   },
   "dependencies": {
     "body-parser": "^1.19.0",
