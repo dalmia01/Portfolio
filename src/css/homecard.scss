@@ -1,0 +1,177 @@
+.card__started{
+  width:500px;
+  max-width: 500px;
+  background:#fff;
+  position:absolute;
+  top:40px;
+  left:200px;
+  border-radius:6px;
+  max-height: 550px;
+  height:550px;
+  z-index:4;
+  box-shadow: 3px 5px 5px rgba(0,0,0,0.3);
+
+  .profile{
+    height: 65%;
+  }
+
+  .home_card_content{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+
+    .title{
+      font-size:2em;
+      padding-top:0.5em;
+    }
+
+    .position{
+      font-size: 1.3em;
+      color: #78cc6d;
+    }
+
+
+  }
+
+  .social_dom{
+
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to left, #eee 0%, #85a392 50%, #eee 100%);
+    border-image-slice: 1;
+  }
+
+  .social{
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4,1fr);
+    width: 40%;
+    margin:0 auto;
+    padding: 15px;
+
+    a{
+      color:rgba(0,0,0,0.7);
+    }
+
+  }
+
+  .inks{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    text-align: center;
+
+
+    a{
+      text-decoration: none;
+      color:#000;
+      padding:7px;
+      display: block;
+
+
+      span{
+        padding-right: 10px;
+      }
+
+
+      &.download{
+        border-right: 2px solid transparent;
+        border-image: linear-gradient(to bottom, #85a392 , #eee );
+        border-image-slice: 1;
+
+
+      }
+
+      &.discover{
+
+      }
+
+
+
+
+      &:hover{
+        color:#78cc6d;
+      }
+    }
+  }
+
+  .photo{
+    height:100%;
+    overflow: hidden;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    img{
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+@media (max-width:1380px){
+  .card__started{
+    left:130px;
+  }
+}
+
+@media (max-width:1259px){
+  .card__started{
+    max-width: 630px;
+    width:630px;
+    left:350px;
+  }
+}
+
+@media (max-width:1209px){
+  .card__started{
+    max-width: 600px;
+    width:600px;
+    left:320px;
+  }
+}
+
+@media (max-width:1100px){
+  .card__started{
+    max-width: 600px;
+    width:600px;
+    left:300px;
+  }
+}
+
+@media (max-width:960px){
+  .card__started{
+    max-width: 550px;
+    width:550px;
+    left:220px;
+  }
+}
+
+@media (max-width:870px){
+  .card__started{
+    max-width: 550px;
+    width:550px;
+    left:180px;
+  }
+}
+
+
+@media (max-width:770px){
+  .card__started{
+    left:140px;
+    max-width: 540px;
+    width:540px;
+  }
+}
+
+@media (max-width:680px){
+  .card__started{
+    max-width: 100%;
+    width:90%;
+    position: relative;
+    top:100px;
+    left:0;
+    margin: 0 auto;
+  }
+
+
+}

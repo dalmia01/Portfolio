@@ -1,0 +1,80 @@
+#contact_card{
+
+  .about_content.contact_content{
+    .row{
+      display: grid;
+      grid-template-columns: repeat(2,50%);
+
+    .contact_info.personnel_info{
+      display:flex;
+      justify-content: space-between;
+      padding-bottom:10px;
+
+      border-bottom:1px solid transparent;
+      border-image:linear-gradient(to right, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0.5) 90%);
+      border-image-slice: 1;
+
+      a{
+        text-decoration: none;
+        color:#000;
+      }
+
+
+
+    }
+
+    }
+
+    .col_row{
+      display: grid;
+      grid-template-columns: repeat(2,50%);
+      padding:10px 10px 0px 0px;
+      .form_control{
+        display: grid;padding:10px 10px 0px 0px;
+        grid-template-rows: 1fr 10px;
+
+        .error{
+          color:red;
+          font-size: 12px;
+        }
+
+        label{
+          color:rgba(0,0,0,0.7);
+          margin-bottom: 5px;
+          display: grid;
+        }
+
+        input[type='text'],textarea{
+          padding:10px;
+          border:2px solid #eee;
+
+          &:focus{
+            border:1px solid #78cc6d;
+            outline: none;
+          }
+        }
+
+        input[type='submit']{
+          padding: 10px;
+          border: none;
+          background: #eee;
+          font-weight: 500;
+          outline: none;
+          letter-spacing: 1px;
+          font-family: 'Poppins';
+          cursor: pointer;
+        }
+      }
+    }
+
+    .full_row{
+      @extend .col_row;
+      display: grid;
+      grid-template-columns: 100%;
+
+
+
+
+    }
+  }
+}

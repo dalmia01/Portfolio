@@ -1,0 +1,43 @@
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,html{
+  height: 100%;
+}
+
+body{
+  font-family: 'Poppins';
+  background-image: linear-gradient(to bottom right,#50a3a2, #78cc6d, );
+}
+
+::placeholder{
+  font-family: 'Poppins';
+  font-style:italic;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.5);
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; }

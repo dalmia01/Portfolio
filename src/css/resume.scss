@@ -1,0 +1,292 @@
+
+
+
+#resume_card{
+  opacity: 0;
+  z-index:0;
+  &.card__diff_started{
+
+    .resume__about{
+      border-bottom:1px solid transparent;
+      border-image:linear-gradient(to right, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0.5) 90%);
+      border-image-slice: 1;
+    }
+
+    .deg_text.resume_text_box{
+
+      display: grid;
+      margin-top: 20px;
+      font-size:15px;
+      color:rgba(0,0,0,0.5);
+
+      margin: 0px 10px;
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(to right, rgba(197, 202, 213, 0.7) 0%, rgba(255, 255, 255, 0.5) 90%);
+      border-image-slice: 1;
+      padding-top: 20px;
+
+      &.first_deg{
+        border:none;
+      }
+
+
+      .date{
+        border:1px solid #78cc6d;
+        border-radius: 6px;
+        padding:0px 5px;
+      }
+      .name{
+        display: block;
+        margin-top:10px;
+        color:#000;
+        font-size:18px;
+        font-weight: 400;
+      }
+      .name,.place,p{
+        padding-left:5px;
+      }
+
+      p{
+        margin-top: 10px;
+        color: rgba(0, 0, 0, 0.7);
+        font-weight: 500;
+        line-height: 1.8em;
+        padding-bottom: 10px;
+      }
+    }
+
+    .col.fpx{
+      padding-left:30px;
+    }
+
+    .row.deg_text{
+      display:grid;grid-template-columns:50% 50%;
+
+
+    }
+
+    #resume_skills{
+      .col:first-child{
+        border-right:1px solid transparent;
+        border-image:linear-gradient(to bottom, rgba(197, 202, 213, 0.7) 50%, rgba(197, 202, 213, 0.7) 100%);
+        border-image-slice: 1;
+      }
+
+      .col.spx:first-child{
+        border-right:1px solid transparent;
+        border-image:linear-gradient(to bottom, rgba(197, 202, 213, 0.7) 50%, rgba(255, 255, 255, 0.7) 100%);
+        border-image-slice: 1;
+      }
+
+      .skill_title{
+        display: block;
+        padding-bottom: 20px;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(197, 202, 213, 0.7) 40%, rgba(255, 255, 255, 0.5) 80%);
+        border-image-slice: 1;
+
+        &.lang{
+          padding-bottom: 10px;
+        }
+      }
+
+      .skills_list{
+        &:before{
+          content:'\2713';
+          font-weight: 700;
+          color:#78cc6d;
+          margin-right:10px;
+        }
+      }
+
+      .code.spx{
+        border-right:1px solid transparent;
+        border-image:linear-gradient(to bottom, rgba(197, 202, 213, 0.7) 50%, rgba(255, 255, 255, 0.7) 100%);
+        border-image-slice: 1;
+      }
+
+
+      .code_skills_progress{
+          display: grid;
+          grid-template-columns: repeat(2,50%);
+        .progress_circle  {
+
+            transform: translate(0%,15%);
+            display: flex;
+            justify-content: center;
+
+            span{
+              position: absolute;
+              top: 28%;
+              left: 30%;
+            }
+
+            div{
+              position: absolute;
+              top: 80%;
+            }
+
+            svg{
+
+
+              circle{
+                fill:none;
+                stroke:#eee;stroke-width:10;stroke-linecap:round;
+                transform: translate(5px,5px);
+              }
+
+            }
+
+            &.p60 svg circle:nth-child(2){
+              stroke-dasharray:390;
+              stroke-dashoffset:220;
+              stroke:#78cc6d;
+            }
+
+            &.p75 svg circle:nth-child(2){
+              stroke-dasharray:430;
+              stroke-dashoffset:220;
+              stroke:#78cc6d;
+            }
+
+            &.p50{
+              margin-top:15%;
+            }
+
+            &.p50 svg circle:nth-child(2){
+              stroke-dasharray:380;
+              stroke-dashoffset:220;
+              stroke:#78cc6d;
+            }
+        }
+
+      }
+
+      .progress1{
+        width:90%;
+        margin-top:2px;
+        background:#d8dbe2;
+        height:3px;
+        position: relative;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(197, 202, 213, 0.7) 40%, rgba(255, 255, 255, 0.5) 80%);
+        border-image-slice: 1;
+
+        &:before{
+          content:'';
+          position: absolute;
+          width:60%;
+          background-color: #78cc6d;
+          height:3px;
+        }
+      }
+
+      .progress2{
+        @extend .progress1;
+        &:before{
+          width:45%;
+        }
+      }
+
+      .progress3{
+        @extend .progress1;
+        &:before{
+          width:70%;
+        }
+      }
+
+      .roundprogress{
+        padding-top:10px;
+        span{
+          display: inline-block;
+          min-width:15px;
+          min-height:15px;
+          background: #78cc6d;
+          border-radius: 50%;
+          margin-right:5px;
+
+          &.color_null{
+            background: #eee;
+          }
+        }
+      }
+
+    }
+
+    .resume_text_box.text_box{
+      text-transform: uppercase;
+      font-size: 18px;
+
+      &.fpx{
+        padding: 0px 0px;
+        line-height: 0px;
+
+        div{
+          border-bottom: 1px solid transparent;
+          border-image: linear-gradient(to right, rgba(255,255,255,0.5) 0%,rgba(197, 202, 213, 0.7) 40%, rgba(255, 255, 255, 0.5) 80%);
+          border-image-slice: 1;
+        }
+      }
+
+      &.fpx:last-child{
+        padding-left:30px
+      }
+
+      i,.some-icon{
+        color:#78cc6d;
+        padding-right:10px;
+      }
+      .some-icon{
+        font-size:30px;
+      }
+    }
+
+
+
+  }
+}
+
+@media (max-width:600px){
+  .card__diff_started .about_content .row{
+    grid-template-columns: 100%;
+  }
+  .card__diff_started .about_content .row .col:last-child {
+    padding-left: 0px;
+}
+
+#resume_card{
+
+  &.card__diff_started{
+
+    .col.smallhidden{
+      display:none;
+    }
+
+
+
+  }
+
+
+
+}
+
+#resume_card.card__diff_started .col.hidden{
+  display: block;
+}
+
+#resume_card.card__diff_started .col.fpx{
+  padding-left: 0px;
+}
+
+.progress_circle
+
+
+svg{
+  margin-left:20%;
+}
+
+#resume_card.card__diff_started #resume_skills .code_skills_progress .progress_circle span{
+  left:43%;
+}
+
+}
