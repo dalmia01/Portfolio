@@ -1,8 +1,8 @@
-# Portfolio Website
+# Multiple Portfolio Website
 
-Portfolio website with resume, contact and about.
+Multiple Portfolio website with resume, contact and about.
 
-visiting demo link - https://proftfolio-01.netlify.app/
+visiting demo link - https://pkd-portfolio.netlify.app/
 
 ## Getting Started
 
