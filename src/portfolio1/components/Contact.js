@@ -6,7 +6,7 @@ import work2 from '../assets/works2.jpg';
 import work3 from '../assets/works3.jpg';
 import work4 from '../assets/work4.jpg';
 import work5 from '../assets/works5.jpg';
-import {serverUrl} from '../url';
+import {serverUrl} from '../../url';
 
 const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 

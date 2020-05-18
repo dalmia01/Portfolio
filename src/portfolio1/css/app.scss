@@ -12,8 +12,9 @@ body,html{
 
 body{
   font-family: 'Poppins';
-  background-image: linear-gradient(to bottom right,#50a3a2, #78cc6d, );
+  //background-image: linear-gradient(to bottom right,#50a3a2, #78cc6d, );
 }
+
 
 ::placeholder{
   font-family: 'Poppins';
@@ -41,3 +42,35 @@ body{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; }
+
+#app{
+  height:100%;
+}
+
+
+  .portfolio1{
+    background-image: linear-gradient(to bottom right,#50a3a2, #78cc6d, );
+    height:100%;
+    width:100%;
+  }
+
+  .first.card{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top:10%;
+
+    img{
+      width:50%;
+      height:300px;
+    }
+  }
+
+
+  @media (max-width:767px){
+    .first.card{
+      grid-template-columns: 100%;
+    }
+  }

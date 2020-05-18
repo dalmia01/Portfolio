@@ -7,10 +7,12 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.join(__dirname, "build"),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: '/'
     },
     devServer: {
     contentBase: "./build",
+    historyApiFallback:true
     },
     module: {
         rules: [{
