@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 
 module.exports = {
@@ -26,15 +27,11 @@ module.exports = {
             }
         }, {
             test: /\.(s*)css$/,
-            use: ExtractTextPlugin.extract(
-                {
-                    fallback: 'style-loader',
-                    use: ['css-loader','sass-loader']
-                }
-            )
+            exclude:/node_modules/,
+            use: ['style-loader', 'css-loader', 'sass-loader']
         },
         {
-            test: /\.(png|jpg|jpeg|gif)$/,
+            test: /\.(png|jpg|gif)$/,
             use: [
                 {
                     loader: 'file-loader'
@@ -49,6 +46,11 @@ module.exports = {
             filename: "index.html",  //target html
             template: "./index.html" //source html
         }),
-        new ExtractTextPlugin({ filename: 'css/style.css' })
+        new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+    })
     ]
 }
