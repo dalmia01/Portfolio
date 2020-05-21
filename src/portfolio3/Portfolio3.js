@@ -42,7 +42,7 @@ export const Portfolio3 = props => {
 
   const [formdata,setFormData] = React.useState({name:'',email:'',message:'',errName:'',errEmail:'',errMsg:'',buttonAbility:true});
   const [successErrMsg,setSuccessErrMsg] = React.useState(null);
-  const [skillactiveVal,setSkillActiveVal] = React.useState(1);
+  const [skillactiveVal,setSkillActiveVal] = React.useState(0);
 
   const changeFormData = (e) => {
     let btnabledisable = true;
@@ -297,7 +297,7 @@ export const Portfolio3 = props => {
               <h3>The definitive Node.js handbook</h3>
               <span class='high_date'>Sep 06, 2018</span>
               <div className='blog_info_content'>This handbook is a getting started guide to Node.js, the server-side JavaScript runtime environment.</div>
-              <div className='readmore'><a href='https://medium.com/@dalmia01/creating-mern-boiler-plate-bed70beeb27a' target='_blank'>Read More <b>...</b> </a></div>
+              <div className='readmore'><a href='https://medium.com/free-code-camp/the-definitive-node-js-handbook-6912378afc6e' target='_blank'>Read More <b>...</b> </a></div>
 
             </div>
 
