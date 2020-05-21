@@ -30,7 +30,7 @@ export const Sidebar = props =>{
       <div className='links' style={{color : elemVal== 0 ? '#ce0f3d' : '#333' }} onClick={() => moveToElement('port3_home',0)}>Home</div>
       <div className='links' style={{color : elemVal== 1 ? '#ce0f3d' : '#333' }} onClick={() => moveToElement('port3_about',1)}>About Me</div>
       <div className='links' style={{color : elemVal== 2 ? '#ce0f3d' : '#333' }} onClick={() => moveToElement('port3_experience',2)}>Experience</div>
-      <div className='links' style={{color : elemVal== 3 ? '#ce0f3d' : '#333' }} onClick={() => moveToElement('port3_skills',3)}>Skills</div>
+      <div className='links' style={{color : elemVal== 3 ? '#ce0f3d' : '#333' }} onClick={() => moveToElement('port3_skills',3)}>Skills - Blogs</div>
       <div className='links' style={{color : elemVal== 4 ? '#ce0f3d' : '#333' }} onClick={() => moveToElement('port3_education',4)}>Education</div>
       <div className='links' style={{color : elemVal== 5 ? '#ce0f3d' : '#333' }} onClick={() => moveToElement('port3_contact',5)}>Contact</div>
       <div className='portfolio3_info'>

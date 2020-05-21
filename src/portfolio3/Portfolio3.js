@@ -2,6 +2,8 @@ import React from 'react';
 import {Sidebar} from './components/Sidebar';
 import './assets/css/portfolio3.scss';
 import pic1 from '../assets/team-1.jpg';
+import blog1 from '../assets/single-portfolio-1.jpg';
+import blog2 from '../assets/skills-blogs.jpg';
 import sign from '../assets/signature5ec286a2447b2.png';
 import {serverUrl} from '../url';
 import Slider from 'react-slick';
@@ -40,6 +42,7 @@ export const Portfolio3 = props => {
 
   const [formdata,setFormData] = React.useState({name:'',email:'',message:'',errName:'',errEmail:'',errMsg:'',buttonAbility:true});
   const [successErrMsg,setSuccessErrMsg] = React.useState(null);
+  const [skillactiveVal,setSkillActiveVal] = React.useState(1);
 
   const changeFormData = (e) => {
     let btnabledisable = true;
@@ -103,14 +106,14 @@ export const Portfolio3 = props => {
       .then((data)=>{
         console.log(data);
         if(data.success){
-          setSuccessErrMsg(<span style={{color:'#6decb9'}}>Mesage Sent Successfully</span>);
+          setSuccessErrMsg(<span style={{color:'#7FE67C'}}>Mesage Sent Successfully</span>);
         }else{
           setSuccessErrMsg(<span style={{color:'#ce0f3d'}}>Some Error Occured. Try Later!</span>);
         }
 
         const hideMessage = setTimeout(()=>{
           setSuccessErrMsg('');
-        },3000);
+        },5000);
 
       }).catch((err)=>{console.log('some eror occured',err)});
     }
@@ -221,8 +224,16 @@ export const Portfolio3 = props => {
       </section>
 
       <section className='port3_skills m30' id='port3_skills'>
-        <div className='m30'>
+
+        <div className='sub_port3_skill_blog'>
           <div>
+            <button className={skillactiveVal == 0 ? 'btn active' : 'btn'} onClick={() => setSkillActiveVal(0)}>Skills</button>
+            <button className={skillactiveVal == 1 ? 'btn active' : 'btn'} onClick={() => setSkillActiveVal(1)}>Blogs</button>
+          </div>
+        </div>
+
+        {(skillactiveVal == 0) &&<div className='m30 skill_set_block'>
+          <div className='skill_set_block'>
             <h4>Coding Skills</h4>
             <div className='skill skill1'>
               <div>
@@ -258,7 +269,52 @@ export const Portfolio3 = props => {
             <div className='knowldege_lists'>Build Tools - Webpack</div>
             <div className='knowldege_lists'>Storages - MongoDB / MySQL</div>
           </div>
-        </div>
+        </div>}
+        {(skillactiveVal == 1) && <div className='m30 blog_set_block'>
+
+
+
+          <div className='port3_blog_card pb1'>
+            <div className='left_card'>
+              <img src={blog1} className='port3_blog_card'/>
+
+            </div>
+
+            <div className='right_card'>
+              <h3 >Creating MERN Boiler Plate</h3>
+              <span class='high_date'>May 20, 2020</span>
+              <div className='blog_info_content'>This article is about how to create a simple MERN Boilerplate. Mern Stack is a combo of four technologies MongoDB(M), Express.js(E), React.js(R) & NodeJS(N).</div>
+              <div className='readmore'><a href='https://medium.com/@dalmia01/creating-mern-boiler-plate-bed70beeb27a' target='_blank'>Read More <b>...</b> </a></div>
+
+            </div>
+
+          </div>
+
+          <div className='port3_blog_card pb2'>
+
+
+            <div className='right_card'>
+              <h3>The definitive Node.js handbook</h3>
+              <span class='high_date'>Sep 06, 2018</span>
+              <div className='blog_info_content'>This handbook is a getting started guide to Node.js, the server-side JavaScript runtime environment.</div>
+              <div className='readmore'><a href='https://medium.com/@dalmia01/creating-mern-boiler-plate-bed70beeb27a' target='_blank'>Read More <b>...</b> </a></div>
+
+            </div>
+
+            <div className='left_card'>
+              <img src={blog2} className='port3_blog_card'/>
+
+            </div>
+
+          </div>
+
+
+
+
+          {/**/}
+
+
+        </div>}
       </section>
 
       <section className='port3_experience' id='port3_education'>
@@ -315,7 +371,7 @@ export const Portfolio3 = props => {
         </div>
       </section>
 
-      {successErrMsg && <div className='dataDelivered'>{successErrMsg}</div>}
+      { successErrMsg && <div className='dataDelivered'>{successErrMsg}</div>}
 
 
 
