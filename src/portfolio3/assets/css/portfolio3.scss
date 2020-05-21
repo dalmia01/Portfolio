@@ -1,4 +1,4 @@
-$mainColor : #00909E;
+$mainColor : #ce0f3d;
 
 .portfolio3{
   display: grid;
@@ -6,6 +6,10 @@ $mainColor : #00909E;
   background: #f8f8f8;
   height:100%;
   grid-template-columns: 260px 1fr;
+
+  ion-icon{
+    color:$mainColor;
+  }
 
   .sidenavbar{
     position: fixed;
@@ -210,6 +214,10 @@ $mainColor : #00909E;
           font-size: 20px;
           text-transform: uppercase;
           color:$mainColor;
+
+          sup{
+            text-transform: lowercase;
+          }
         }
       }
 
@@ -341,6 +349,11 @@ $mainColor : #00909E;
           flex-direction: column;
           margin:20px 0px;
 
+          .error{
+            color:$mainColor;
+            font-size:12px;
+          }
+
           input[type='text'],textarea{
             padding:15px;
             border:1px solid #eee;
@@ -352,7 +365,22 @@ $mainColor : #00909E;
             }
           }
 
-          input[type='button']{
+          input[type='submit']:disabled{
+            padding:15px;
+            border:1px solid #eee;
+            margin:10px 0px;
+            outline: none;
+            letter-spacing: 2px;
+            width:200px;
+            margin: 0 auto;
+            color:#333;
+            cursor:not-allowed;
+            background:#eee;
+            color:#fff;
+            border-radius: 100px;
+          }
+
+          input[type='submit']{
             padding:15px;
             border:1px solid #eee;
             margin:10px 0px;
@@ -373,7 +401,60 @@ $mainColor : #00909E;
     }
   }
 
+  .movetToTop{
+    font-weight: 500;
+    position: fixed;z-index:3;bottom:20px;right:0px;
+    width:40px;height:40px;background: $mainColor;cursor: pointer;
+    transition: all .2s ease;opacity:0;right:-40px;
+    &:before{
+      content: '\2191';
+      width:40px;height:40px;color:#fff;font-weight: 700;font-size: 24px;
+      display: flex;justify-content: center;align-items: center;
 
+    }
+  }
+
+  @keyframes movetopanimein{
+    0%{
+      opacity:0;
+    }
+    50%{
+      opacity:1;
+    }100%{
+      opacity:1;
+      right:0px;
+    }
+  }
+  @keyframes movetopanimeout{
+    0%{
+      opacity:1;
+    }
+    50%{
+      opacity:1;
+    }100%{
+      opacity:0;
+      right:-40px;
+    }
+  }
+
+
+  .moveTopshowIn{
+    animation-name: movetopanimein;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+  .moveTophideOut{
+    animation-name: movetopanimeout;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  .dataDelivered{
+    position: fixed;z-index:3;top:20px;right:20px;
+    width:300px;height:50px;background: #fff;cursor: pointer;
+    display: flex;justify-content: center;align-items: center;
+    border:1px solid $mainColor;box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
+  }
 
 
 }

@@ -3,7 +3,9 @@ import {Sidebar} from './components/Sidebar';
 import './assets/css/portfolio3.scss';
 import pic1 from '../assets/team-1.jpg';
 import sign from '../assets/signature5ec286a2447b2.png';
+import {serverUrl} from '../url';
 import Slider from 'react-slick';
+const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const settings = {
       dots: false,
@@ -36,25 +38,121 @@ const settings1 = {...settings,autoplay:false,responsive:[
 
 export const Portfolio3 = props => {
 
-  React.useEffect(()=>{
+  const [formdata,setFormData] = React.useState({name:'',email:'',message:'',errName:'',errEmail:'',errMsg:'',buttonAbility:true});
+  const [successErrMsg,setSuccessErrMsg] = React.useState(null);
 
-  },[])
+  const changeFormData = (e) => {
+    let btnabledisable = true;
+    switch (e.target.name) {
+      case 'name':
+      if(e.target.value != '' && formdata.name != '' && formdata.email != '' && formdata.message != ''){
+        btnabledisable = false;
+      }else{
+        btnabledisable = true;
+      }
+      setFormData({...formdata,name: e.target.value,buttonAbility:btnabledisable,errName:''});break;
+      case 'email':
+
+      if(e.target.value != '' && formdata.name != '' && formdata.email != '' && formdata.message != ''){
+        btnabledisable = false;
+      }else{
+        btnabledisable = true;
+      }
+      setFormData({...formdata,email: e.target.value,buttonAbility:btnabledisable,errEmail:''});break;
+      case 'message':
+
+      if(e.target.value != '' && formdata.name != '' && formdata.email != '' && formdata.message != ''){
+        btnabledisable = false;
+      }else{
+        btnabledisable = true;
+      }
+      setFormData({...formdata,message: e.target.value,buttonAbility:btnabledisable,errMsg:''});break;
+      default: break;
+    }
+  }
+
+  const sendMessage = (e) => {
+    e.preventDefault();
+    //console.log('hello')
+    let errname = '', erremail = '', errmsg = '';
+
+    if(formdata.name.trim().length <= 0 ){
+      errname = 'Name field is required *';
+    }
+
+    if(formdata.email.trim().length <= 0 ){
+      erremail = 'Email field is required *';
+    }else if(!re.test(formdata.email)){
+      erremail = 'Email must be in email format *';
+    }
+
+    if(formdata.message.trim().length <= 0 ){
+      errmsg = 'Message field is required *';
+    }else if(formdata.message.trim().length > 0  && formdata.message.trim().length < 10){
+      errmsg = 'Message field must be atleast of length 10 *';
+    }
+
+    setFormData({...formdata,errName:errname,errMsg:errmsg,errEmail:erremail});
+
+    if(formdata.errName == '' && formdata.errEmail == '' && formdata.errMsg == '' && errname == '' && erremail == ''&& errmsg == ''){
+      fetch(`${serverUrl}/contact`,{
+        method:'POST',
+        body:JSON.stringify(formdata),
+        headers: {"Content-Type": "application/json"}
+      }).then((res)=>res.json())
+      .then((data)=>{
+        console.log(data);
+        if(data.success){
+          setSuccessErrMsg(<span style={{color:'#6decb9'}}>Mesage Sent Successfully</span>);
+        }else{
+          setSuccessErrMsg(<span style={{color:'#ce0f3d'}}>Some Error Occured. Try Later!</span>);
+        }
+
+        const hideMessage = setTimeout(()=>{
+          setSuccessErrMsg('');
+        },3000);
+
+      }).catch((err)=>{console.log('some eror occured',err)});
+    }
+  }
+
+  const moveToElement = (elem) => {
+      var element = document.getElementById(`${elem}`);
+      window.scrollTo({
+          top: element.offsetTop,
+          behavior: 'smooth'
+      });
+    }
+
+  const showHideScrollTop = () =>{
+    if(window.pageYOffset > 50){
+      document.querySelector('.movetToTop').classList.add('moveTopshowIn');
+      document.querySelector('.movetToTop').classList.remove('moveTophideOut');
+    }else{
+      document.querySelector('.movetToTop').classList.add('moveTophideOut');
+      document.querySelector('.movetToTop').classList.remove('moveTopshowIn');
+    }
+  }
+
+  React.useEffect(()=>{
+    window.addEventListener('scroll',showHideScrollTop);
+  },[]);
 
 
   return (
     <div className='portfolio3'>
       <Sidebar />
       <div className='port3_article'>
-      <section className='portfolio3_home content_vert_middle'>
+      <section className='portfolio3_home content_vert_middle' id='port3_home'>
         <div className='portfolio_home_content content'>
           <h2>Prateek Dalmia</h2>
           <h5>Front-End Developer</h5>
-          <button className='port3_home_btn_white border_round'>View Resume</button>
-          <button className='port3_home_btn_black border_round'>Hire Me</button>
+          <button className='port3_home_btn_white border_round' onClick={() => moveToElement('port3_experience')}>View Resume</button>
+          <button className='port3_home_btn_black border_round' onClick={() => moveToElement('port3_contact')}>Hire Me</button>
         </div>
       </section>
 
-      <section className='port3_about content_vert_middle'>
+      <section className='port3_about content_vert_middle' id='port3_about'>
       <div className='content'>
 
         <div className='port3_about_card'>
@@ -86,7 +184,7 @@ export const Portfolio3 = props => {
       </div>
       </section>
 
-      <section className='port3_experience'>
+      <section className='port3_experience' id='port3_experience'>
         <div className='m30'>
           <h4>Experience</h4>
 
@@ -122,7 +220,7 @@ export const Portfolio3 = props => {
         </div>
       </section>
 
-      <section className='port3_skills m30'>
+      <section className='port3_skills m30' id='port3_skills'>
         <div className='m30'>
           <div>
             <h4>Coding Skills</h4>
@@ -163,7 +261,7 @@ export const Portfolio3 = props => {
         </div>
       </section>
 
-      <section className='port3_experience'>
+      <section className='port3_experience' id='port3_education'>
         <div className='m30'>
           <h4>Education</h4>
 
@@ -178,7 +276,7 @@ export const Portfolio3 = props => {
               </div>
               <div  className='port3_experience_card'>
                 <div className='port3_experience_card_content'><h5 className='date'><ion-icon name="calendar"></ion-icon><span>Apr 2009 - Mar 2011</span> <ion-icon name="business"></ion-icon> Kamal Model School</h5>
-                <div className='desig'>12<sup>th</sup>Standard</div>
+                <div className='desig'>12<sup>th</sup> Standard</div>
                 <div className='role'>Worked on an Internal Web Platform to help users view daily task, review and some other functionalities.</div></div>
               </div>
               <div className='port3_experience_card'>
@@ -199,23 +297,27 @@ export const Portfolio3 = props => {
         </div>
       </section>
 
-      <section className='port3_contact'>
+      <section className='port3_contact' id='port3_contact'>
         <div className='m30'>
             <h4>Contact Me</h4>
-            <div className='form'>
+            <form className='form' onSubmit={sendMessage}>
             <div><label>Name</label>
-            <input type='text' />
-            <span className='error'></span></div>
+            <input type='text' name='name' value={formdata.name} onChange={changeFormData}/>
+            <span className='error'>{formdata.errName}</span></div>
             <div><label>Email</label>
-            <input type='text' />
-            <span className='error'></span></div>
+            <input type='text' name='email' value={formdata.email} onChange={changeFormData}/>
+            <span className='error'>{formdata.errEmail}</span></div>
             <div><label>Message</label>
-            <textarea></textarea>
-            <span className='error'></span></div>
-            <div><input type='button' value='Send Message' /></div>
-            </div>
+            <textarea name='message' value={formdata.message} onChange={changeFormData}></textarea>
+            <span className='error'>{formdata.errMsg}</span></div>
+            <div><input type='submit' disabled={formdata.buttonAbility} value='Send Message' /></div>
+            </form>
         </div>
       </section>
+
+      {successErrMsg && <div className='dataDelivered'>{successErrMsg}</div>}
+
+
 
       </div>
     </div>

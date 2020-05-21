@@ -19,7 +19,7 @@ app.use(cors(),bodyParser.urlencoded({extended:true}),bodyParser.json());
 
 router.post('/contact',(req,res)=>{
   console.log('contact request is recieved',req.body);
-  res.send({message:'data recieved succesfuly'});
+  res.send({message:'data recieved succesfuly',success:true});
 });
 
 app.use('/',router);
