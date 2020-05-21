@@ -1,0 +1,413 @@
+$mainColor : #00909E;
+
+.portfolio3{
+  display: grid;
+  color:#333;
+  background: #f8f8f8;
+  height:100%;
+  grid-template-columns: 260px 1fr;
+
+  .sidenavbar{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:1;
+    overflow: auto;
+    width:260px;
+    height: 100%;
+    background: #fff;
+
+    .links{
+      margin: 20px;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all .2s ease;
+      cursor: pointer;
+      &:hover{
+        color:$mainColor;
+      }
+    }
+
+    .portfolio3_info{
+      > * {
+        display: flex;
+        flex-direction:column;
+        margin-left:20px;
+        padding:5px 0px;
+      }
+    }
+
+  }
+
+
+  .port3_article{
+      left:260px;
+      position: absolute;
+      height:100%;
+      width:calc(100% - 260px);
+  }
+
+  .content_vert_middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #f8f8f8;
+  }
+
+
+  .portfolio3_home{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)) , url('../../../assets/parallax-bg-5.jpg');
+    height:100%;
+    background-size:cover;
+  }
+
+  .content{
+    font-family: 'Poppins';
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+
+    .border_round{
+      border-radius: 100px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid #fff;
+      outline: none;
+      color: #fff;
+      margin: 20px;
+      cursor:pointer;
+      transition: all .2s ease;
+      letter-spacing: 1.5px;
+      font-size: 14px;
+
+      &.port3_home_btn_black{
+        background: #000;
+        border:1px solid #000;
+      }
+
+      &:hover{
+        background:#fff;
+        border:1px solid #fff;
+        color:#000;
+      }
+    }
+
+  }
+
+  .port3_about .content{
+    color:#333;
+    font-weight: 400;
+    font-size: 1em;
+    padding:30px 0px;
+    width:85%;
+    justify-content: center;
+    align-items: center;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    div{
+      margin:0 auto;
+    }
+
+    .port3_about_card{
+
+      .left_card{
+        display: flex;
+        flex-direction: column;
+        transition: all .2s ease;
+        box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
+
+        &:hover{
+          transform: scale(1.04);
+        }
+
+        span{
+          display: grid;
+        }
+      }
+      .port3_about_image{
+        height:400px;
+      }
+      .port3_about_info{
+        background: #fff;
+        padding:10px;
+      }
+    }
+
+
+    .right_card{
+      text-align: justify;
+      padding:10px;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.5em;
+
+      h2{
+        padding:20px 0px;
+      }
+
+      .about_info_content{
+        padding:5px 0px;
+        b{
+          font-size:16px;
+          font-weight: 500;
+        }
+        &.pt40{
+          padding-top: 40px;
+        }
+        &.pinfo{
+          display: grid;
+          grid-template-columns: 40% 60%;
+
+        }
+      }
+
+      img{
+        margin-top:20px;
+      }
+    }
+
+
+  }
+
+  .port3_experience{
+    background: #000;
+    padding:30px 0px;
+
+    .m30{
+      width:95%;
+      margin:0 auto;
+    }
+
+    h4{
+      width: 96%;
+      margin: 0 auto;
+      font-size:25px;
+      color:$mainColor;
+    }
+
+    .port3_experience_card{
+      padding:20px;
+
+      .port3_experience_card_content{
+        background: #fff;
+        min-height:200px;
+        max-height:200px;
+        padding:20px;
+        .date{
+          font-size: 16px;
+        }
+        .date span{
+          padding-right: 20px;
+          padding-left: 5px;
+        }
+        .desig{
+          margin:10px 0px;
+          font-size: 20px;
+          text-transform: uppercase;
+          color:$mainColor;
+        }
+      }
+
+    }
+  }
+
+  .port3_skills{
+    background: #f8f8f8;
+    padding:30px 0px;
+    .m30{
+      width:95%;margin:0 auto;
+      display: grid;grid-template-columns: 50% 50%;
+
+      >div{
+        margin:20px;padding:20px 25px;
+        h4{color:$mainColor;text-transform: uppercase;font-size: 1.1em;letter-spacing: 2px;}
+      }
+    }
+
+    .skill{
+      padding:20px 0px;
+      .skill_name{
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .skill_percent{
+        width:100%;
+        height:3px;
+        background:rgba(0,0,0,0.2);
+        margin-top:5px;
+        position: relative;
+        &:before{
+          content:'';
+          position: absolute;
+          height:3px;
+          background: $mainColor;
+          width:65%;
+        }
+        &:after{
+          content:'65%';
+          position: absolute;left:65%;
+        }
+      }
+
+      &.skill2 .skill_percent{
+        @extend .skill_percent;
+        &:before{
+          width:70%;
+        }
+        &:after{
+          content:'70%';
+          position: absolute;left:70%;
+        }
+      }
+
+      &.skill3 .skill_percent{
+        @extend .skill_percent;
+        &:before{
+          width:50%;
+        }
+        &:after{
+          content:'50%';
+          position: absolute;left:50%;
+        }
+      }
+
+      &.skill4 .skill_percent{
+        @extend .skill_percent;
+        &:before{
+          width:40%;
+        }
+        &:after{
+          content:'40%';
+          position: absolute;left:40%;
+        }
+      }
+
+    }
+
+
+    .knowldege_lists{
+      padding:16px 0px;
+      position: relative;
+      padding-left:30px;
+      display: flex;
+      align-items: center;
+
+      &:before{
+        content: '\2713';
+        position: absolute;
+        color:$mainColor;
+        font-size: 24px;font-weight:700;left:0;
+      }
+
+    }
+    .knowldege_lists:first-of-type{
+      padding-top:35px;
+    }
+
+  }
+
+
+  .port3_contact{
+    background:#f8f8f8;
+    padding:50px 0px;
+
+    .m30{
+      width: 95%;
+      margin: 0 auto;
+
+      h4{
+        color:$mainColor;
+        text-align: center;
+        font-size: 28px;text-transform: uppercase;
+      }
+
+      .form{
+        background: #fff;
+        box-shadow: 0 5px 23px rgba(0, 0, 0, 0.15);
+        width:60%;
+        margin: 0 auto;
+        padding:30px;
+        margin-top:40px;
+        color:#333;
+        letter-spacing: 2px;
+        >div {
+          display: flex;
+          flex-direction: column;
+          margin:20px 0px;
+
+          input[type='text'],textarea{
+            padding:15px;
+            border:1px solid #eee;
+            margin:10px 0px;
+            outline: none;
+            letter-spacing: 2px;
+            &:focus{
+              border:1px solid $mainColor;
+            }
+          }
+
+          input[type='button']{
+            padding:15px;
+            border:1px solid #eee;
+            margin:10px 0px;
+            outline: none;
+            letter-spacing: 2px;
+            width:200px;
+            margin: 0 auto;
+            color:#333;
+            cursor: pointer;
+            background:$mainColor;
+            color:#fff;
+            border-radius: 100px;
+          }
+
+        }
+      }
+
+    }
+  }
+
+
+
+
+}
+
+@media (max-width:1100px){
+  .portfolio3 .port3_about .content{
+    grid-template-columns: 100%;
+  }
+}
+
+@media (max-width:950px){
+  .portfolio3 .port3_skills .m30{
+    grid-template-columns:100%;
+  }
+  .portfolio3 .port3_contact .m30 .form{
+    width:70%;
+  }
+}
+
+@media (max-width:767px){
+  .portfolio3 .port3_contact .m30 .form{
+    width:80%;
+  }
+}
+
+@media (max-width:650px){
+  .portfolio3{
+    grid-template-columns: 100%;
+  }
+  .portfolio3 .sidenavbar{
+    display: none;
+  }
+  .portfolio3 .port3_article{
+    left:0;
+    width:100%;
+  }
+}
